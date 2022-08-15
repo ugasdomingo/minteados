@@ -19,7 +19,6 @@ const arteSchema = new Schema({
   image: {
     public_id: String,
     secure_url: String,
-    required: true
   },
   link: {
     type: String,

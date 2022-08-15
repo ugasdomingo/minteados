@@ -32,7 +32,7 @@ arteRouter.get('/user/:email', async (req: any, res: any) => {
   }
 });
 
-arteRouter.post('/',userAuth , async (req: any, res: any) => {
+arteRouter.post('/',userAuth, async (req: any, res: any) => {
   try {
 
     const { 
@@ -128,7 +128,7 @@ arteRouter.delete('/:id',userAuth , async (req: any, res: any) => {
       return res.status(404).json({message:"arte no encontrado"})
     ;
 
-    await deleteImage(arte.image?.public_id);
+    await deleteImage(arte.image);
 
     await arte.remove();
 

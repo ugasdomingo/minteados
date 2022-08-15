@@ -3,7 +3,6 @@ import 'dotenv/config';
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import fileUpload from 'express-fileupload';
 
 //Import Routes
 import authRouter from './routes/authRouter';
@@ -27,10 +26,6 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(fileUpload({
-  useTempFiles : true,
-  tempFileDir : './uploads'
-}));
 
 //Routes
 app.use('/api', authRouter);
