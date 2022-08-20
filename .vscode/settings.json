@@ -1,0 +1,9 @@
+{
+    "vetur.format.options.tabSize": 4,
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
+    "prettier.bracketSpacing": true,
+    "prettier.useTabs": true,
+    "editor.guides.indentation": false,
+    "thunder-client.indentSize": 4
+}
