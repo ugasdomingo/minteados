@@ -2,9 +2,9 @@
 import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-import { useUserStore } from '../stores/user-store';
+import { useAuthStore } from '../stores/auth-store';
 const $q = useQuasar();
-const userStore = useUserStore();
+const authStore = useAuthStore();
 const router = useRouter();
 const name = ref('');
 const email = ref('');
@@ -13,7 +13,7 @@ const repassword = ref('');
 const handleSubmit = async () => {
     try {
         console.log('pasó las validaciones');
-        await userStore.register(name.value, email.value, password.value);
+        await authStore.register(name.value, email.value, password.value);
         router.push('/');
         email.value = '';
         password.value = '';

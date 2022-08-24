@@ -8,6 +8,7 @@ import morgan from "morgan";
 import authRouter from "./routes/authRouter";
 import blogRouter from "./routes/blogRouter";
 import arteRouter from "./routes/arteRouter";
+import userRouter from "./routes/userRouter";
 
 //Define app
 const app = express();
@@ -33,6 +34,7 @@ app.use(express.json());
 
 //Routes
 app.use("/api", authRouter);
+app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
 app.use("/api/galery", arteRouter);
 

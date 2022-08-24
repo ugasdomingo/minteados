@@ -7,7 +7,7 @@ import {
 } from 'vue-router';
 
 import routes from './routes';
-import { useUserStore } from 'src/stores/user-store';
+import { useAuthStore } from 'src/stores/auth-store';
 
 export default route(function (/* { store, ssrContext } */) {
     const createHistory = process.env.SERVER
@@ -29,16 +29,16 @@ export default route(function (/* { store, ssrContext } */) {
     Router.beforeEach(async (to, from, next) => {
         //Validación para rutas protegidas
         const requiredAuth = to.meta.auth;
-        const userStore = useUserStore();
+        const authStore = useAuthStore();
 
-        if (userStore.token) {
+        if (authStore.token) {
             return next();
         }
 
         if (requiredAuth || localStorage.getItem('user')) {
-            await userStore.refreshToken();
+            await authStore.refreshToken();
 
-            if (userStore.token) {
+            if (authStore.token) {
                 return next();
             }
             return next('login');

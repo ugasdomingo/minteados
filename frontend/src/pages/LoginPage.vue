@@ -2,16 +2,16 @@
 import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
-import { useUserStore } from '../stores/user-store';
+import { useAuthStore } from '../stores/auth-store';
 const $q = useQuasar();
-const userStore = useUserStore();
+const authStore = useAuthStore();
 const router = useRouter();
 const email = ref('');
 const password = ref('');
 const handleSubmit = async () => {
     try {
         console.log('pasó las validaciones');
-        await userStore.access(email.value, password.value);
+        await authStore.access(email.value, password.value);
         router.push('/escritorio');
         email.value = '';
         password.value = '';

@@ -1,25 +1,22 @@
 <template>
-    <q-page class="row justify-center">
-        <div class="col-12 col-sm-6 col-md-8">
-            <h3 class="text-white text-center">Disfruta del arte NFT</h3>
-            <pre>
-              {{ artStore.allArt }}
-            </pre>
+    <q-page class="column">
+        <h3 class="text-white text-center">Disfruta del arte NFT</h3>
+        <div class="row justify-center">
+            <template v-for="art of artStore.allArt" :key="art.id">
+                <CardGallery :art="art" class="q-ma-sm" />
+            </template>
         </div>
     </q-page>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { useArtStore } from 'src/stores/art-store';
 
-export default {
-    setup() {
-        const artStore = useArtStore();
-        artStore.getAllArt();
+//Component
+import CardGallery from 'src/components/CardGallery.vue';
 
-        return {
-            artStore,
-        };
-    },
-};
+const artStore = useArtStore();
+artStore.getAllArt();
 </script>
+
+<style scoped></style>

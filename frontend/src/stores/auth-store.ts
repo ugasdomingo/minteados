@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import { api } from 'src/boot/axios';
 import { ref } from 'vue';
 
-export const useUserStore = defineStore('user', () => {
+export const useAuthStore = defineStore('user', () => {
     const token = ref(null);
     const expiresIn = ref(0);
 
@@ -89,6 +89,45 @@ export const useUserStore = defineStore('user', () => {
         expiresIn.value = 0;
     };
 
+    const getUser = async (id: any) => {
+        try {
+            const res = await api({
+                url: '/user/' + id,
+                method: 'GET',
+            });
+            return res.data;
+        } catch (error: any) {
+            if (error.response) {
+                throw error.response.data;
+            } else if (error.request) {
+                console.log(error.request);
+            } else {
+                console.log('Error', error.message);
+            }
+        }
+    };
+
+    const getPrivateUser = async () => {
+        try {
+            const res = await api({
+                url: '/user',
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + token.value,
+                },
+            });
+            return res.data;
+        } catch (error: any) {
+            if (error.response) {
+                throw error.response.data;
+            } else if (error.request) {
+                console.log(error.request);
+            } else {
+                console.log('Error', error.message);
+            }
+        }
+    };
+
     return {
         token,
         expiresIn,
@@ -96,5 +135,7 @@ export const useUserStore = defineStore('user', () => {
         refreshToken,
         logout,
         register,
+        getUser,
+        getPrivateUser,
     };
 });

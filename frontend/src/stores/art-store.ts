@@ -2,16 +2,16 @@
 import { defineStore } from 'pinia';
 import { api } from 'src/boot/axios';
 import { ref } from 'vue';
-import { useUserStore } from './user-store';
+import { useAuthStore } from './auth-store';
 
 export const useArtStore = defineStore('art', () => {
-    const userStore = useUserStore();
+    const authStore = useAuthStore();
     const art = ref('');
     const allArt = ref('');
+    const allUserArt = ref('');
 
     const getAllArt = async () => {
         try {
-            console.log('Peticion get all');
             const res = await api({
                 url: '/galery',
                 method: 'GET',
@@ -33,6 +33,32 @@ export const useArtStore = defineStore('art', () => {
         }
     };
 
+    const getAllUserArt = async () => {
+        try {
+            const res = await api({
+                url: '/galery/user',
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + authStore.token,
+                },
+            });
+            allUserArt.value = res.data.arte.map((item: any) => {
+                return {
+                    id: item._id,
+                    title: item.title,
+                    description: item.description,
+                    category: item.category,
+                    uid: item.uid,
+                    show: item.show,
+                    link: item.link,
+                    image: item.image?.secure_url,
+                };
+            });
+        } catch (error: any) {
+            throw error.response?.data || error;
+        }
+    };
+
     const createArt = async (formData: any) => {
         try {
             const res = await api({
@@ -40,7 +66,7 @@ export const useArtStore = defineStore('art', () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    Authorization: 'Bearer ' + userStore.token,
+                    Authorization: 'Bearer ' + authStore.token,
                 },
                 data: formData,
             });
@@ -52,5 +78,26 @@ export const useArtStore = defineStore('art', () => {
         }
     };
 
-    return { createArt, allArt, getAllArt };
+    const deleteArt = async (id: any) => {
+        try {
+            const res = await api({
+                url: '/galery/' + id,
+                method: 'DELETE',
+                headers: {
+                    Authorization: 'Bearer ' + authStore.token,
+                },
+            });
+        } catch (error: any) {
+            throw error.response?.data || error;
+        }
+    };
+
+    return {
+        createArt,
+        allArt,
+        allUserArt,
+        getAllArt,
+        getAllUserArt,
+        deleteArt,
+    };
 });

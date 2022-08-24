@@ -20,9 +20,9 @@ arteRouter.get("/", async (req: any, res: any) => {
 	}
 });
 
-arteRouter.get("/user/:email", async (req: any, res: any) => {
+arteRouter.get("/user", userAuth, async (req: any, res: any) => {
 	try {
-		const user = await UserModel.findOne({ email: req.params.email });
+		const user = await UserModel.findById(req.uid);
 
 		const arte = await Arte.find({ uid: user?.id, show: true }).lean();
 		return res.json({ arte });

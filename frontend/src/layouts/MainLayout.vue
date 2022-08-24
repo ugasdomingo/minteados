@@ -17,15 +17,15 @@
 
                 <q-btn
                     color="secondary"
-                    to="subir-nft"
-                    v-if="!userStores.token"
+                    to="escritorio"
+                    v-if="!authStores.token"
                 >
                     Subir un NFT
                 </q-btn>
                 <q-btn
                     color="secondary"
                     @click="logout"
-                    v-if="userStores.token"
+                    v-if="authStores.token"
                 >
                     Cerrar Sesión
                 </q-btn>
@@ -53,8 +53,7 @@
                 <q-btn
                     class="q-mt-lg q-ml-lg"
                     color="secondary"
-                    target="blank"
-                    href="subir-nft"
+                    href="escritorio"
                     >Exibir un NFT
                 </q-btn>
             </q-lis>
@@ -68,7 +67,7 @@
                     icon="whatsapp"
                     color="accent"
                     target="Blank"
-                    href="https://wa.me/584245933845?text=Hola%2C%20me%20gustar%C3%ADa%20una%20consulta%20online"
+                    href="https://wa.me/584245298662?text=Hola%2C%20minteados"
                 />
             </q-page-sticky>
         </q-page-container>
@@ -96,9 +95,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useUserStore } from '../stores/user-store';
+import { useAuthStore } from '../stores/auth-store';
 import EssentialLink from '../components/EssentialLink.vue';
-const userStores = useUserStore();
+const authStores = useAuthStore();
 const router = useRouter();
 const rightDrawerOpen = ref(false);
 const essentialLinks = [
@@ -112,11 +111,11 @@ const essentialLinks = [
         title: 'Exponer NFT',
         caption: 'Tu NFT en nuestras galerías de arte',
         icon: 'code',
-        link: 'subir-nft',
+        link: 'escritorio',
     },
     {
         title: 'Mi escritorio',
-        caption: 'Herramienta terapeutica',
+        caption: 'Gestiona tus NFT',
         icon: 'chat',
         link: 'escritorio',
     },
@@ -131,7 +130,7 @@ function toggleRightDrawer() {
     rightDrawerOpen.value = !rightDrawerOpen.value;
 }
 const logout = async () => {
-    await userStores.logout();
+    await authStores.logout();
     router.push('/');
 };
 </script>
