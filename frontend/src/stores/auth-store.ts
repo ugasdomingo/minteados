@@ -7,7 +7,7 @@ export const useAuthStore = defineStore('user', () => {
     const token = ref(null);
     const expiresIn = ref(0);
 
-    const access = async (email: any, password: any) => {
+    const access = async (email: string, password: string) => {
         try {
             const res = await api.post('/login', {
                 email,
@@ -29,7 +29,7 @@ export const useAuthStore = defineStore('user', () => {
         }
     };
 
-    const register = async (name: any, email: any, password: any) => {
+    const register = async (name: string, email: string, password: string) => {
         try {
             const res = await api.post('/register', {
                 name: name,
