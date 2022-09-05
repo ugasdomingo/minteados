@@ -13,13 +13,16 @@ import userRouter from "./routes/userRouter";
 //Define app
 const app = express();
 
-const allowedOrigins = process.env.ORIGIN1 as string;
+const allowedOrigins = [
+	process.env.ORIGIN1 as string,
+	process.env.ORIGIN2 as string,
+];
 
 //Middleware
 app.use(
 	cors({
 		origin: function (origin: any, callback: any) {
-			if (!origin || allowedOrigins.includes(origin)) {
+			if (allowedOrigins.includes(origin)) {
 				return callback(null, origin);
 			}
 			return callback(
