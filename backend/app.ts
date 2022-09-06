@@ -14,13 +14,13 @@ import userRouter from "./routes/userRouter";
 //Define app
 const app = express();
 
-/* const allowedOrigins = [
+const allowedOrigins = [
 	process.env.ORIGIN1 as string,
 	process.env.ORIGIN2 as string,
-]; */
+];
 
 //Middleware
-/* app.use(
+app.use(
 	cors({
 		origin: function (origin: any, callback: any) {
 			if (allowedOrigins.includes(origin)) {
@@ -32,8 +32,7 @@ const app = express();
 		},
 		credentials: true,
 	})
-); */
-app.use(cors());
+);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
