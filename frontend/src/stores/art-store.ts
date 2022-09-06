@@ -65,8 +65,8 @@ export const useArtStore = defineStore('art', () => {
                 url: '/galery',
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'multipart/form-data',
                     Authorization: 'Bearer ' + authStore.token,
+                    'Content-Type': 'multipart/form-data',
                 },
                 data: formData,
             });
