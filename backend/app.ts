@@ -33,14 +33,7 @@ const app = express();
 		credentials: true,
 	})
 ); */
-let allowCors = function (req: any, res: any, next: any) {
-	res.header("Access-Control-Allow-Origin", process.env.ORIGIN1 as string);
-	res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-	res.header("Access-Control-Allow-Headers", "Content-Type");
-	next();
-};
-app.use(allowCors);
-
+app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
