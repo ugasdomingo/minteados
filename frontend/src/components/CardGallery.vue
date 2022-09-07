@@ -18,12 +18,12 @@ defineProps({
 </script>
 
 <template>
-    <q-card class="card cursor-pointer">
+    <q-card class="my-card cursor-pointer">
         <img :src="art?.image" />
 
         <q-popup-proxy>
             <q-card-section>
-                <div class="text-h6 text-primary">{{ art?.title }}</div>
+                <div class="text-h6 titles text-primary">{{ art?.title }}</div>
                 <div class="text-subtitle2 text-primary">
                     {{ art?.description }}
                 </div>
@@ -32,15 +32,16 @@ defineProps({
             <q-card-section>
                 <q-btn
                     @click="findUser(art?.uid)"
-                    class="bg-secondary"
+                    class="bg-secondary titles"
                     label="Contactar Artista"
                 >
                     <q-popup-proxy class="text-primary">
-                        <p>
-                            Nombre: <span>{{ name }}</span>
+                        <p class="q-py-none q-ma-sm">
+                            Nombre:
+                            <span class="titles">{{ name }}</span>
                         </p>
-                        <p>
-                            Correo: <span>{{ email }}</span>
+                        <p class="q-py-none q-ma-sm">
+                            Correo: <span class="titles">{{ email }}</span>
                         </p>
                     </q-popup-proxy>
                 </q-btn>
@@ -49,13 +50,8 @@ defineProps({
     </q-card>
 </template>
 
-<style scoped>
-.card {
-    max-width: 200px;
-}
-.card img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 250px
 </style>

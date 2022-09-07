@@ -3,6 +3,7 @@ import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useAuthStore } from '../stores/auth-store';
+
 const $q = useQuasar();
 const authStore = useAuthStore();
 const router = useRouter();
@@ -69,7 +70,7 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
                     ></q-btn>
                 </div>
             </q-form>
-            <div class="alternarLogin">
+            <div class="">
                 <p>¿Primera vez?</p>
                 <q-btn to="signup" color="primary">Crear una cuenta</q-btn>
             </div>

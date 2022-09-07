@@ -18,12 +18,14 @@
                 <q-btn
                     color="secondary"
                     to="escritorio"
+                    class="titles text-h6"
                     v-if="!authStores.token"
                 >
-                    Subir un NFT
+                    Mi Escritorio
                 </q-btn>
                 <q-btn
                     color="secondary"
+                    class="titles text-h6"
                     @click="logout"
                     v-if="authStores.token"
                 >
@@ -51,21 +53,23 @@
                     v-bind="link"
                 />
                 <q-btn
-                    class="q-mt-lg q-ml-lg"
+                    class="q-mt-lg q-ml-lg titles text-h6"
                     color="secondary"
                     href="escritorio"
                     >Exibir un NFT
                 </q-btn>
             </q-lis>
+            <q-img src="img/nft-carnets.png" style="max-width: 150px" />
         </q-drawer>
 
         <q-page-container class="gradiant">
             <router-view />
             <q-page-sticky position="bottom-right" :offset="[18, 18]">
+                <q-img src="img/nft-mascota.png" />
                 <q-btn
                     fab
                     icon="whatsapp"
-                    color="accent"
+                    color="secondary"
                     target="Blank"
                     href="https://wa.me/584245298662?text=Hola%2C%20minteados"
                 />
@@ -97,21 +101,16 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '../stores/auth-store';
 import EssentialLink from '../components/EssentialLink.vue';
+
 const authStores = useAuthStore();
 const router = useRouter();
 const rightDrawerOpen = ref(false);
 const essentialLinks = [
     {
-        title: 'Sobre mi - (pronto)',
-        caption: '¿Por qué deberías seguirme?',
+        title: 'Sobre nosotros - (pronto)',
+        caption: 'Conocer nuestro lado oscuro',
         icon: 'school',
         link: '#',
-    },
-    {
-        title: 'Exponer NFT',
-        caption: 'Tu NFT en nuestras galerías de arte',
-        icon: 'code',
-        link: 'escritorio',
     },
     {
         title: 'Mi escritorio',
@@ -121,7 +120,7 @@ const essentialLinks = [
     },
     {
         title: 'Ver la galeria',
-        caption: 'Disfruta el arte NFT',
+        caption: 'Ver todos los NFT',
         icon: 'record_voice_over',
         link: 'gallery',
     },

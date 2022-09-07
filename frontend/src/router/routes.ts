@@ -11,13 +11,6 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('pages/AboutPage.vue'),
             },
             {
-                path: 'subir-nft',
-                component: () => import('pages/ArtFormPage.vue'),
-                meta: {
-                    auth: true,
-                },
-            },
-            {
                 path: 'escritorio',
                 component: () => import('pages/DeskPage.vue'),
                 meta: {

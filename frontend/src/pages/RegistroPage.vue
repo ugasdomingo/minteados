@@ -3,6 +3,7 @@ import { useQuasar } from 'quasar';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useAuthStore } from '../stores/auth-store';
+
 const $q = useQuasar();
 const authStore = useAuthStore();
 const router = useRouter();
@@ -96,4 +97,14 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
     </q-page>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+.alternarLogin {
+    padding: 10vh 0 0 0;
+    display: grid;
+    width: fit-content;
+}
+.alternarLogin p {
+    margin: 0 12px 0 0;
+    color: gray;
+}
+</style>

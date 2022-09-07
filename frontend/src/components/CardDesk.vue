@@ -17,19 +17,19 @@ defineProps({
 </script>
 
 <template>
-    <q-card class="card cursor-pointer" @click="info = !info">
+    <q-card class="my-card" @click="info = !info">
         <img :src="art?.image" />
 
         <q-expansion-item>
             <q-card-section v-model="info">
-                <div class="text-h6 text-primary">{{ art?.title }}</div>
+                <div class="text-h6 titles text-primary">{{ art?.title }}</div>
                 <div class="text-subtitle2 text-primary">
                     {{ art?.description }}
                 </div>
             </q-card-section>
 
             <q-card-section v-model="info">
-                <q-btn @click="deleteArt(art?.id)" class="bg-secondary">
+                <q-btn @click="deleteArt(art?.id)" class="bg-secondary titles">
                     Borrar
                 </q-btn>
             </q-card-section>
@@ -37,14 +37,8 @@ defineProps({
     </q-card>
 </template>
 
-<style scoped>
-.card {
-    width: 100%;
-    max-width: 250px;
-}
-.card img {
-    width: 250px;
-    height: 250px;
-    object-fit: contain;
-}
+<style lang="sass" scoped>
+.my-card
+  width: 100%
+  max-width: 250px
 </style>

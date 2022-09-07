@@ -1,8 +1,10 @@
 <template>
     <q-page>
-        <div class="servicios-title">
-            <h3 class="text-white">Disfruta el Arte NFT</h3>
-            <p class="text-secondary">Colecciones para admirar y coleccionar</p>
+        <div class="text-center q-my-xl">
+            <h1 class="text-white titles text-h1 q-my-xs">
+                Conviértete en parte de la Historia
+            </h1>
+            <p class="text-info text-h5">Muestra al mundo tu colección NFT</p>
         </div>
         <div class="row justify-center">
             <template v-for="art of artStore.allArt" :key="art.id">
@@ -21,4 +23,4 @@ const artStore = useArtStore();
 artStore.getAllArt();
 </script>
 
-<style lang="sass" scoped></style>
+<style scoped></style>

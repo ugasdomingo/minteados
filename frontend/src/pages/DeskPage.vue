@@ -6,7 +6,7 @@
                 <div
                     v-for="art of artStore.allUserArt"
                     :key="art.id"
-                    class="container"
+                    class="flex"
                 >
                     <CardDesk :art="art" class="q-my-sm" />
                 </div>
@@ -58,8 +58,4 @@ const user = async () => {
 user();
 </script>
 
-<style scoped>
-.container {
-    display: flex;
-}
-</style>
+<style scoped></style>
