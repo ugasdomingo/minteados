@@ -1,12 +1,14 @@
 <template>
     <q-item clickable :to="link">
         <q-item-section v-if="icon" avatar>
-            <q-icon :name="icon" />
+            <q-icon :name="icon" class="text-secondary" />
         </q-item-section>
 
         <q-item-section>
-            <q-item-label class="titles text-h6">{{ title }}</q-item-label>
-            <q-item-label caption>{{ caption }}</q-item-label>
+            <q-item-label class="titles text-secondary text-h6">{{
+                title
+            }}</q-item-label>
+            <q-item-label class="text-white">{{ caption }}</q-item-label>
         </q-item-section>
     </q-item>
 </template>

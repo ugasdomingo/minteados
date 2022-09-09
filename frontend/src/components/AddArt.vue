@@ -32,7 +32,7 @@ const handleSubmit = async () => {
 <template>
     <div>
         <q-form @submit.prevent="handleSubmit">
-            <h4 class="text-white titles text-center">Exibir un NFT</h4>
+            <h4 class="text-white titles">Exibir un NFT</h4>
             <q-input
                 v-model="title"
                 label="Título del NFT"

@@ -19,7 +19,7 @@ defineProps({
 
 <template>
     <q-card class="my-card cursor-pointer">
-        <img :src="art?.image" />
+        <img style="height: 250px; max-width: 250px" :src="art?.image" />
 
         <q-popup-proxy>
             <q-card-section>
@@ -54,4 +54,7 @@ defineProps({
 .my-card
   width: 100%
   max-width: 250px
+
+.my-card img
+  object-fit: cover
 </style>

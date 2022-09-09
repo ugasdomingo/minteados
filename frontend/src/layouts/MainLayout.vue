@@ -17,6 +17,7 @@
 
                 <q-btn
                     color="secondary"
+                    text-color="primary"
                     to="escritorio"
                     class="titles text-h6"
                     v-if="!authStores.token"
@@ -25,6 +26,7 @@
                 </q-btn>
                 <q-btn
                     color="secondary"
+                    text-color="primary"
                     class="titles text-h6"
                     @click="logout"
                     v-if="authStores.token"
@@ -44,32 +46,38 @@
             </q-toolbar>
         </q-header>
 
-        <q-drawer v-model="rightDrawerOpen" side="right" bordered dark>
+        <q-drawer v-model="rightDrawerOpen" side="right" class="bg-primary">
             <q-lis>
-                <q-item-label header> ¿Que quieres hacer hoy? </q-item-label>
+                <q-item-label class="text-white" header>
+                    ¿Que quieres hacer hoy?
+                </q-item-label>
                 <EssentialLink
                     v-for="link in essentialLinks"
                     :key="link.title"
                     v-bind="link"
                 />
+                <q-img
+                    src="../assets/nft-collectibles-hero.png"
+                    style="max-width: 200px"
+                    class="q-mt-xl"
+                />
                 <q-btn
                     class="q-mt-lg q-ml-lg titles text-h6"
                     color="secondary"
-                    href="escritorio"
+                    text-color="primary"
+                    to="escritorio"
                     >Exibir un NFT
                 </q-btn>
             </q-lis>
-            <q-img src="img/nft-carnets.png" style="max-width: 150px" />
         </q-drawer>
 
         <q-page-container class="gradiant">
             <router-view />
             <q-page-sticky position="bottom-right" :offset="[18, 18]">
-                <q-img src="img/nft-mascota.png" />
                 <q-btn
                     fab
                     icon="whatsapp"
-                    color="secondary"
+                    color="positive"
                     target="Blank"
                     href="https://wa.me/584245298662?text=Hola%2C%20minteados"
                 />
@@ -110,7 +118,7 @@ const essentialLinks = [
         title: 'Sobre nosotros - (pronto)',
         caption: 'Conocer nuestro lado oscuro',
         icon: 'school',
-        link: '#',
+        link: 'sobre-nosotros',
     },
     {
         title: 'Mi escritorio',

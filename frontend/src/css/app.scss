@@ -2,22 +2,22 @@
 
 body {
     color: white;
-    font-family: 'Source Sans';
+    font-family: 'GothamBook';
 }
 
 //Fonts
 @font-face {
-    font-family: Mouse Memoirs;
-    src: url(../assets/fonts/MouseMemoirs-Regular.ttf);
+    font-family: Highman;
+    src: url(../assets/fonts/Highman.ttf);
 }
 @font-face {
-    font-family: Source Sans;
-    src: url(../assets/fonts/SourceSansPro-Regular.ttf);
+    font-family: GothamBook;
+    src: url(../assets/fonts/GothamBook.ttf);
 }
 
 //Preset styles
 .titles {
-    font-family: 'Mouse Memoirs';
+    font-family: 'Highman';
 }
 
 @media screen and (max-width: 760px) {

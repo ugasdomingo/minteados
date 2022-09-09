@@ -37,11 +37,13 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
 
 <template>
     <q-page class="row justify-center">
-        <div class="col-12 col-sm-6 col-md-5">
-            <h3 class="text-primary">Me alegra verte</h3>
+        <div class="col-12 col-sm-6 col-md-5 justify-between">
+            <h3 class="text-white titles">Nos alegra verte</h3>
             <q-form @submit.prevent="handleSubmit">
                 <q-input
                     v-model="email"
+                    color="white"
+                    dark
                     label="Ingrese email"
                     type="text"
                     :rules="[
@@ -54,6 +56,8 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
                 <q-input
                     v-model="password"
                     label="Ingrese contraseña"
+                    color="white"
+                    dark
                     type="password"
                     :rules="[
                         (val) =>
@@ -65,14 +69,17 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
                 <div>
                     <q-btn
                         label="Iniciar Sesión"
-                        color="primary"
+                        class="titles q-mb-xl q-mt-sm text-h6"
+                        color="secondary"
                         type="submit"
                     ></q-btn>
                 </div>
             </q-form>
-            <div class="">
-                <p>¿Primera vez?</p>
-                <q-btn to="signup" color="primary">Crear una cuenta</q-btn>
+            <div class="q-mt-xl flex">
+                <p class="q-my-sm q-mr-sm text-h6">¿Primera vez?</p>
+                <q-btn class="titles text-h6" to="signup" color="secondary"
+                    >Crear una cuenta</q-btn
+                >
             </div>
         </div>
     </q-page>

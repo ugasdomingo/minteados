@@ -59,6 +59,21 @@ export const useArtStore = defineStore('art', () => {
         }
     };
 
+    const countAllUserArt = async () => {
+        try {
+            const res = await api({
+                url: '/galery/user',
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + authStore.token,
+                },
+            });
+            return res.data.arte;
+        } catch (error: any) {
+            throw error.response?.data || error;
+        }
+    };
+
     const createArt = async (formData: any) => {
         try {
             const res = await api({
@@ -98,6 +113,7 @@ export const useArtStore = defineStore('art', () => {
         allUserArt,
         getAllArt,
         getAllUserArt,
+        countAllUserArt,
         deleteArt,
     };
 });

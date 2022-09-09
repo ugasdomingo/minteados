@@ -1,6 +1,8 @@
 <template>
     <q-page class="column">
-        <h3 class="text-white text-center">Disfruta del arte NFT</h3>
+        <h3 class="text-white titles text-h2 text-center">
+            Disfruta las colecciones de arte NFT
+        </h3>
         <div class="row justify-center">
             <template v-for="art of artStore.allArt" :key="art.id">
                 <CardGallery :art="art" class="q-ma-sm" />

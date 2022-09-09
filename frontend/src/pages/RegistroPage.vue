@@ -38,73 +38,81 @@ const alertDialogBackend = (message = 'Error en el servidor') => {
 </script>
 
 <template>
-    <q-page class="row justify-center">
-        <div class="col-12 col-sm-6 col-md-5">
-            <h3>Bienvenido(a) a Bordo</h3>
-            <q-form @submit.prevent="handleSubmit">
-                <q-input
-                    v-model="name"
-                    label="Ingresa tu Nombre Completo"
-                    type="text"
-                ></q-input>
+    <q-page class="q-mx-sm">
+        <div class="flex justify-center items-center">
+            <div>
+                <h3 class="titles">Bienvenido(a) a Bordo</h3>
+                <q-form @submit.prevent="handleSubmit">
+                    <q-input
+                        v-model="name"
+                        dark
+                        label="Ingresa tu Nombre Completo"
+                        type="text"
+                    ></q-input>
 
-                <q-input
-                    v-model="email"
-                    label="Ingrese email"
-                    type="text"
-                    :rules="[
-                        (val) =>
-                            (val && /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(val)) ||
-                            'Formato email incorrecto',
-                    ]"
-                ></q-input>
+                    <q-input
+                        v-model="email"
+                        dark
+                        label="Ingrese email"
+                        type="text"
+                        :rules="[
+                            (val) =>
+                                (val &&
+                                    /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(val)) ||
+                                'Formato email incorrecto',
+                        ]"
+                    ></q-input>
 
-                <q-input
-                    v-model="password"
-                    label="Ingrese contraseña"
-                    type="password"
-                    :rules="[
-                        (val) =>
-                            (val && val.length > 5) ||
-                            'Contraseña mínimo 6 carácteres',
-                    ]"
-                ></q-input>
+                    <q-input
+                        v-model="password"
+                        dark
+                        label="Ingrese contraseña"
+                        type="password"
+                        :rules="[
+                            (val) =>
+                                (val && val.length > 5) ||
+                                'Contraseña mínimo 6 carácteres',
+                        ]"
+                    ></q-input>
 
-                <q-input
-                    v-model="repassword"
-                    label="Repita contraseña"
-                    type="password"
-                    :rules="[
-                        (val) =>
-                            (val && val === password) ||
-                            'No coinciden las contraseñas',
-                    ]"
-                ></q-input>
+                    <q-input
+                        v-model="repassword"
+                        dark
+                        label="Repita contraseña"
+                        type="password"
+                        :rules="[
+                            (val) =>
+                                (val && val === password) ||
+                                'No coinciden las contraseñas',
+                        ]"
+                    ></q-input>
 
-                <div>
-                    <q-btn
-                        label="Registrarme"
-                        color="primary"
-                        type="submit"
-                    ></q-btn>
+                    <div>
+                        <q-btn
+                            label="Registrarme"
+                            class="titles text-h6"
+                            color="secondary"
+                            type="submit"
+                        ></q-btn>
+                    </div>
+                </q-form>
+                <div class="q-mt-xl flex">
+                    <p class="q-my-sm q-mr-sm text-h6 text-white">
+                        ¿Ya tienes una cuenta?
+                    </p>
+                    <q-btn class="titles text-h6" to="login" color="secondary"
+                        >Iniciar Sesión</q-btn
+                    >
                 </div>
-            </q-form>
-            <div class="alternarLogin">
-                <p>¿Ya tienes una cuenta?</p>
-                <q-btn to="login" color="primary">Iniciar Sesión</q-btn>
             </div>
+            <q-img
+                src="img/nft-mascota.png"
+                class="q-ml-xl"
+                style="max-width: 250px; height: 400px"
+                :fit="cover"
+            />
         </div>
     </q-page>
 </template>
 
-<style lang="scss" scoped>
-.alternarLogin {
-    padding: 10vh 0 0 0;
-    display: grid;
-    width: fit-content;
-}
-.alternarLogin p {
-    margin: 0 12px 0 0;
-    color: gray;
-}
-</style>
+<style scoped></style>

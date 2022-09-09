@@ -18,7 +18,7 @@ defineProps({
 
 <template>
     <q-card class="my-card" @click="info = !info">
-        <img :src="art?.image" />
+        <img :src="art?.image" style="height: 150px; max-width: 150px" />
 
         <q-expansion-item>
             <q-card-section v-model="info">
