@@ -8,7 +8,7 @@ declare module '@vue/runtime-core' {
 }
 
 const api = axios.create({
-    baseURL: 'https://hammerhead-app-d53cm.ondigitalocean.app/api',
+    baseURL: 'https://minteados-backend.vercel.app/api',
     withCredentials: true,
 });
 
